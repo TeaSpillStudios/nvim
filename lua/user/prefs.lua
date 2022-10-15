@@ -28,6 +28,9 @@ vim.cmd('nnoremap <leader>g <cmd>LazyGit<cr>')
 
 vim.cmd('nnoremap <leader>t <cmd>TroubleToggle<cr>')
 
+-- Rust format
+vim.cmd('nnoremap <leader>fr <cmd>%!rustfmt<cr>')
+
 -- Make escape cancel the recent most recent search
 vim.cmd('nnoremap <esc> :noh<return><esc>')
 
