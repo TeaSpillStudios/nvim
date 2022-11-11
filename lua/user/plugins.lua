@@ -88,6 +88,9 @@ return require('packer').startup(function(use)
   --> Discord RPC
   use 'andweeb/presence.nvim'
 
+  --> Add plugin for commenting out lines quickly
+  use 'tpope/vim-commentary'
+
   if packer_bootstrap then
     require('packer').sync()
   end
