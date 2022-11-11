@@ -11,19 +11,19 @@ end
 
 local packer_bootstrap = ensure_packer()
 
--- Set menu config for cmp
+--> Set menu config for cmp
 vim.cmd('set completeopt=menu,menuone,noselect')
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- Speed up loading times with impatient.nvim
+  --> Speed up loading times with impatient.nvim
   use 'lewis6991/impatient.nvim'
   require('impatient')
 
   use 'arcticicestudio/nord-vim'
 
-  -- CMP
+  --> CMP
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -31,47 +31,47 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
 
-  -- Use VSnip
+  --> Use VSnip
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
 
-  -- Languages
+  --> Languages
   use 'stefanos82/nelua.vim'
 
-  -- Status bar
+  --> Status bar
   use 'vim-airline/vim-airline'
 
-  -- Tabs
+  --> Tabs
   use ({ 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } })
 
-  -- TODO: comments
+  --> TODO: comments
   use { 'folke/todo-comments.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require('todo-comments').setup {} end }
 
-  -- Trouble
+  --> Trouble
   use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons', config = function() require('trouble').setup {} end }
 
-  -- Lazy git
+  --> Lazy git
   use 'kdheepak/lazygit.nvim'
 
-  -- Telescope
+  --> Telescope
   use ({ 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} }, config = function() require("telescope").load_extension("lazygit") end })
 
-  -- Show information of modifications in git repositories
+  --> Show information of modifications in git repositories
   use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
 
-  -- Setup autopairs
+  --> Setup autopairs
   use { 'windwp/nvim-autopairs', config = function() require("nvim-autopairs").setup {} end }
 
-  -- Setup project (a way to navigate projects)
+  --> Setup project (a way to navigate projects)
   use { 'ahmedkhalf/project.nvim', config = function() require("project_nvim").setup { patterns = {".git", "Makefile", "package.json", "Gemfile", ".prj", "Cargo.toml" } } end }
 
-  -- Setup illuminate
+  --> Setup illuminate
   use 'RRethy/vim-illuminate'
 
-  -- Setup MD file syntax highlighting
+  --> Setup MD file syntax highlighting
   use({ "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end })
 
-  -- Writing
+  --> Writing
   use "TeaSpillStudios/AbbrevMan.nvim"
   use "preservim/vim-litecorrect"
   use "preservim/vim-lexical"
@@ -79,11 +79,15 @@ return require('packer').startup(function(use)
   use "preservim/vim-wheel"
   use "preservim/vim-wordy"
 
-  -- Multiple cursors
+  --> Multiple cursors
   use 'mg979/vim-visual-multi'
 
-  -- Have startup dashboard
+  --> Have startup dashboard
   use 'goolord/alpha-nvim'
+
+  --> Discord RPC
+  use 'andweeb/presence.nvim'
+
   if packer_bootstrap then
     require('packer').sync()
   end
