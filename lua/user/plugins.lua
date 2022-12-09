@@ -72,12 +72,10 @@ require("packer").startup(function(use)
 
   -- Add automatic pairing
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }
+  use "tpope/vim-surround"
 
   -- Open LazyGit inside of NeoVim
   use "kdheepak/lazygit.nvim"
-
-  -- Keybindings in popup
-  use "liuchengxu/vim-which-key"
 
   -- Trouble panel
   use { "folke/trouble.nvim", requires = "nvim-web-devicons", config = function() require("trouble").setup {} end }
@@ -102,6 +100,9 @@ require("packer").startup(function(use)
 
   -- Discord presence
   use 'andweeb/presence.nvim'
+
+  -- Project, allowing to navigate projects
+  use { 'ahmedkhalf/project.nvim', config = function() require("project_nvim").setup { patterns = {".git", "Makefile", "package.json", "Gemfile", ".prj", "Cargo.toml" } } end }
 end)
 
 -- the first run will install packer and the plugins
