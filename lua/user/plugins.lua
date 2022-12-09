@@ -1,9 +1,10 @@
+-- ensure the packer plugin manager is installed
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
     return true
   end
   return false
@@ -11,87 +12,90 @@ end
 
 local packer_bootstrap = ensure_packer()
 
---> Set menu config for cmp
-vim.cmd('set completeopt=menu,menuone,noselect')
+require("packer").startup(function(use)
+  -- Packer can manage itself
+  use("wbthomason/packer.nvim")
 
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
+  -- Collection of common configurations for the Nvim LSP client
+  use("neovim/nvim-lspconfig")
 
-  --> Speed up loading times with impatient.nvim
-  use 'lewis6991/impatient.nvim'
-  require('impatient')
+  -- Visualize LSP progress
+  use({
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup()
+    end
+  })
 
-  use 'arcticicestudio/nord-vim'
+  -- Autocompletion framework
+  use("hrsh7th/nvim-cmp")
 
-  --> CMP
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+  use({
+    -- CMP LSP completion
+    "hrsh7th/cmp-nvim-lsp",
+    -- CMP nippet completion
+    "hrsh7th/cmp-vsnip",
+    -- CMP path completion
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-buffer",
+    after = { "hrsh7th/nvim-cmp" },
+    requires = { "hrsh7th/nvim-cmp" },
+  })
 
-  --> Use VSnip
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+  -- Snippet engine
+  use('hrsh7th/vim-vsnip')
 
-  --> Languages
-  use 'stefanos82/nelua.vim'
+  -- Adds extra functionality over rust analyzer
+  use("simrat39/rust-tools.nvim")
 
-  --> Status bar
-  use 'vim-airline/vim-airline'
+  -- Optional
+  use("nvim-lua/popup.nvim")
+  use("nvim-lua/plenary.nvim")
+  use("nvim-telescope/telescope.nvim")
 
-  --> Tabs
-  use ({ 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } })
+  -- Some color scheme other then default
+	use 'shaunsingh/nord.nvim'
 
-  --> TODO: comments
-  use { 'folke/todo-comments.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require('todo-comments').setup {} end }
+	-- Add a tab bar
+	use 'nvim-tree/nvim-web-devicons'
+	use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
 
-  --> Trouble
-  use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons', config = function() require('trouble').setup {} end }
+	-- Add a status bar
+	use {
+	  'nvim-lualine/lualine.nvim',
+  	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	}
 
-  --> Lazy git
-  use 'kdheepak/lazygit.nvim'
+	-- Add a panel to view tags
+	use 'preservim/tagbar'
 
-  --> Telescope
-  use ({ 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} }, config = function() require("telescope").load_extension("lazygit") end })
+	-- Add a startup panel
+	use 'goolord/alpha-nvim'
 
-  --> Show information of modifications in git repositories
-  use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
+	-- Add automatic pairing
+	use { 'windwp/nvim-autopairs', config = function() require("nvim-autopairs").setup {} end }
+	
+	-- Open LazyGit inside of NeoVim
+	use "kdheepak/lazygit.nvim"
 
-  --> Setup autopairs
-  use { 'windwp/nvim-autopairs', config = function() require("nvim-autopairs").setup {} end }
+	-- Keybindings in popup
+	use "liuchengxu/vim-which-key"
 
-  --> Setup project (a way to navigate projects)
-  use { 'ahmedkhalf/project.nvim', config = function() require("project_nvim").setup { patterns = {".git", "Makefile", "package.json", "Gemfile", ".prj", "Cargo.toml" } } end }
+	-- Trouble panel
+	use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons', config = function() require('trouble').setup {} end }
 
-  --> Setup illuminate
-  use 'RRethy/vim-illuminate'
+	-- Add modifications of a git repository signs
+	use "airblade/vim-gitgutter"
 
-  --> Setup MD file syntax highlighting
-  use({ "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end })
+	-- Add a tree for undos
+	use "sanfusu/neovim-undotree"
 
-  --> Writing
-  use "TeaSpillStudios/AbbrevMan.nvim"
-  use "preservim/vim-litecorrect"
-  use "preservim/vim-lexical"
-  use "preservim/vim-pencil"
-  use "preservim/vim-wheel"
-  use "preservim/vim-wordy"
-
-  --> Multiple cursors
-  use 'mg979/vim-visual-multi'
-
-  --> Have startup dashboard
-  use 'goolord/alpha-nvim'
-
-  --> Discord RPC
-  use 'andweeb/presence.nvim'
-
-  --> Add plugin for commenting out lines quickly
-  use 'tpope/vim-commentary'
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
+	-- Add a plugin to comment things out quickly
+	use "tpope/vim-commentary"
 end)
+
+-- the first run will install packer and our plugins
+if packer_bootstrap then
+  require("packer").sync()
+  return
+end
