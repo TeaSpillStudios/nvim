@@ -14,16 +14,16 @@ local packer_bootstrap = ensure_packer()
 
 require("packer").startup(function(use)
   -- Packer can manage itself
-  use("wbthomason/packer.nvim")
+  use "wbthomason/packer.nvim"
 
   -- Collection of common configurations for the Nvim LSP client
-  use("neovim/nvim-lspconfig")
+  use "neovim/nvim-lspconfig"
 
   -- Visualize LSP progress
   use({ "j-hui/fidget.nvim", config = function() require("fidget").setup() end })
 
   -- Autocompletion framework
-  use("hrsh7th/nvim-cmp")
+  use "hrsh7th/nvim-cmp"
 
   use({
     -- CMP LSP completion
@@ -38,39 +38,39 @@ require("packer").startup(function(use)
   })
 
   -- Snippet engine
-  use('hrsh7th/vim-vsnip')
+  use "hrsh7th/vim-vsnip"
 
   -- Adds extra functionality over rust analyzer
-  use("simrat39/rust-tools.nvim")
+  use "simrat39/rust-tools.nvim"
 
   -- Dependencies
-  use("nvim-lua/popup.nvim")
-  use("nvim-tree/nvim-web-devicons")
-  use("nvim-lua/plenary.nvim")
+  use "nvim-lua/popup.nvim"
+  use "nvim-tree/nvim-web-devicons"
+  use "nvim-lua/plenary.nvim"
 
   -- Fuzzy finder
-  use("nvim-telescope/telescope.nvim")
+  use "nvim-telescope/telescope.nvim"
 
   -- Some color scheme other then default
-  use 'shaunsingh/nord.nvim'
+  use "shaunsingh/nord.nvim"
 
   -- Add a tab bar
   use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
 
   -- Add a status bar
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true }
   }
 
   -- Add a panel to view tags
-  use 'preservim/tagbar'
+  use "preservim/tagbar"
 
   -- Add a startup panel
-  use 'goolord/alpha-nvim'
+  use "goolord/alpha-nvim"
 
   -- Add automatic pairing
-  use { 'windwp/nvim-autopairs', config = function() require("nvim-autopairs").setup {} end }
+  use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }
 
   -- Open LazyGit inside of NeoVim
   use "kdheepak/lazygit.nvim"
@@ -79,7 +79,7 @@ require("packer").startup(function(use)
   use "liuchengxu/vim-which-key"
 
   -- Trouble panel
-  use { 'folke/trouble.nvim', requires = 'nvim-web-devicons', config = function() require('trouble').setup {} end }
+  use { "folke/trouble.nvim", requires = "nvim-web-devicons", config = function() require("trouble").setup {} end }
 
   -- Add modifications of a git repository signs
   use "airblade/vim-gitgutter"
@@ -89,6 +89,9 @@ require("packer").startup(function(use)
 
   -- Add a plugin to comment things out quickly
   use "tpope/vim-commentary"
+
+  -- Add a better terminal
+  use { "CRAG666/betterTerm.nvim", config = function() require('betterTerm').setup() end }
 end)
 
 -- the first run will install packer and the plugins

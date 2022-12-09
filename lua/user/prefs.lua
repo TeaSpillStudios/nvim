@@ -29,35 +29,35 @@ vim.opt.cursorline = true
 vim.opt.ignorecase = true
 
 -- Display trailing characters
-vim.cmd('set list listchars=tab:··,trail:·')
+vim.cmd("set list listchars=tab:··,trail:·")
 
 -- Change the leader key
-vim.cmd('let mapleader=","')
+vim.cmd("let mapleader=','")
 
 -- Switch tabs by pressing the leader key twice
-vim.cmd('nnoremap <leader><leader> :BufferNext<CR>')
+vim.cmd("nnoremap <leader><leader> :BufferNext<CR>")
 
 -- Close a buffer
-vim.cmd('nnoremap <leader>q :BufferClose<CR>')
+vim.cmd("nnoremap <leader>q :BufferClose<CR>")
 
 -- Find files using Telescope command-line sugar.
-vim.cmd('nnoremap <leader>ff <cmd>Telescope find_files<cr>')
-vim.cmd('nnoremap <leader>fg <cmd>Telescope live_grep<cr>')
-vim.cmd('nnoremap <leader>fb <cmd>Telescope buffers<cr>')
-vim.cmd('nnoremap <leader>fh <cmd>Telescope help_tags<cr>')
-vim.cmd('nnoremap <leader>fp <cmd>Telescope projects<cr>')
+vim.cmd("nnoremap <leader>ff <cmd>Telescope find_files<cr>")
+vim.cmd("nnoremap <leader>fg <cmd>Telescope live_grep<cr>")
+vim.cmd("nnoremap <leader>fb <cmd>Telescope buffers<cr>")
+vim.cmd("nnoremap <leader>fh <cmd>Telescope help_tags<cr>")
+vim.cmd("nnoremap <leader>fp <cmd>Telescope projects<cr>")
 
 -- Open LazyGit
-vim.cmd('nnoremap <leader>g <cmd>LazyGit<cr>')
+vim.cmd("nnoremap <leader>g <cmd>LazyGit<cr>")
 
 -- Open the Trouble panel
-vim.cmd('nnoremap <leader>t <cmd>TroubleToggle<cr>')
+vim.cmd("nnoremap <leader>t <cmd>TroubleToggle<cr>")
 
 -- Rust format
-vim.cmd('nnoremap <leader>fr <cmd>%!rustfmt<cr>')
+vim.cmd("nnoremap <leader>fr <cmd>%!rustfmt<cr>")
 
 -- Make escape cancel the recent most recent search
-vim.cmd('nnoremap <esc> :noh<return><esc>')
+vim.cmd("nnoremap <esc> :noh<return><esc>")
 
 -- Bring up WhichKey
 vim.cmd("nnoremap <silent> <leader> :WhichKey ','<CR>")
@@ -67,3 +67,20 @@ vim.cmd("nnoremap <silent> <leader>u :UndotreeToggle<CR>")
 
 -- Open the tagbar
 vim.cmd("nnoremap <silent> <leader>j :TagbarToggle<CR>")
+
+-- Keybinds for BetterTerm
+local betterTerm = require("betterTerm")
+-- Toggle terminal
+vim.keymap.set({'n', 't'}, "<C-n>", betterTerm.open, { desc = "Open terminal"})
+-- Select a terminal
+vim.keymap.set({'n', 't'}, "<leader>tt", betterTerm.select, { desc = "Select terminal"})
+-- Create new terminal
+local current = 2
+vim.keymap.set(
+    {'n', 't'}, "<leader>tn",
+    function()
+        betterTerm.open(current)
+        current = current + 1
+    end,
+    { desc = "New terminal"}
+)
