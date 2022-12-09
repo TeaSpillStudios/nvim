@@ -59,9 +59,6 @@ vim.cmd("nnoremap <leader>fr <cmd>%!rustfmt<cr>")
 -- Make escape cancel the recent most recent search
 vim.cmd("nnoremap <silent> <esc> :noh<return><esc>")
 
--- Bring up WhichKey
-vim.cmd("nnoremap <silent> <leader> :WhichKey ','<CR>")
-
 -- Add a keybinding to open the undo tree
 vim.cmd("nnoremap <silent> <leader>u :UndotreeToggle<CR>")
 
