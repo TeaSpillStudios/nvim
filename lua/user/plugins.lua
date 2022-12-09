@@ -91,7 +91,10 @@ require("packer").startup(function(use)
   use "tpope/vim-commentary"
 
   -- Add a better terminal
-  use { "CRAG666/betterTerm.nvim", config = function() require('betterTerm').setup() end }
+  use { "CRAG666/betterTerm.nvim", config = function() require("betterTerm").setup() end }
+
+  -- Add a code runner
+  use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim", config = function() require("code_runner").setup({ filetype = { rust = "cd $dir && cargo run" } }) end }
 end)
 
 -- the first run will install packer and the plugins

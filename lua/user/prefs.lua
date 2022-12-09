@@ -84,3 +84,8 @@ vim.keymap.set(
     end,
     { desc = "New terminal"}
 )
+
+-- Code runner with BetterTerm
+vim.keymap.set("n", "<leader>e", function()
+  require('betterTerm').send(require("code_runner.commands").get_filetype_command(), 1, true)
+end, { desc = "Excute File"})
