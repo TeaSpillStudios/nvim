@@ -20,7 +20,7 @@ vim.opt.undofile = true
 vim.opt.updatetime = 300
 
 -- Change the shift width
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
 
 -- Enable the cursor line
 vim.opt.cursorline = true
