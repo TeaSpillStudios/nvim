@@ -89,3 +89,12 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>e", function()
   require('betterTerm').send(require("code_runner.commands").get_filetype_command(), 1, true)
 end, { desc = "Excute File"})
+
+-- Spotify bindings
+vim.cmd([[
+nmap <leader>ss <Plug>(spotify-play/pause)
+nmap <leader>sj <Plug>(spotify-next)
+nmap <leader>sk <Plug>(spotify-prev)
+nmap <leader>so <Plug>(spotify-show)
+nmap <leader>sc <Plug>(spotify-status)
+]])

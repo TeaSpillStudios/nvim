@@ -47,6 +47,7 @@ require("packer").startup(function(use)
   use "nvim-lua/popup.nvim"
   use "nvim-tree/nvim-web-devicons"
   use "nvim-lua/plenary.nvim"
+  use "rcarriga/nvim-notify"
 
   -- Fuzzy finder
   use "nvim-telescope/telescope.nvim"
@@ -95,6 +96,12 @@ require("packer").startup(function(use)
 
   -- Add a code runner
   use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim", config = function() require("code_runner").setup({ filetype = { rust = "cd $dir && cargo run" } }) end }
+
+  -- Control spotify from NeoVim
+  use "stsewd/spotify.nvim"
+
+  -- Discord presence
+  use 'andweeb/presence.nvim'
 end)
 
 -- the first run will install packer and the plugins
