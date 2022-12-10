@@ -120,3 +120,6 @@ require("presence"):setup({
     workspace_text      = "Working on %s",            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
     line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
 })
+
+-- Reformat Rust code on save
+vim.cmd("let g:rustfmt_autosave = 1")
