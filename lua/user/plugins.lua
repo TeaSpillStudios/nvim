@@ -59,7 +59,7 @@ require("packer").startup(function(use)
   use "shaunsingh/nord.nvim"
 
   -- Add a tab bar
-  use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+  use {"romgrk/barbar.nvim", wants = "nvim-web-devicons"}
 
   -- Add a status bar
   use {
@@ -102,10 +102,13 @@ require("packer").startup(function(use)
   use "stsewd/spotify.nvim"
 
   -- Discord presence
-  use 'andweeb/presence.nvim'
+  use "andweeb/presence.nvim"
 
   -- Project, allowing to navigate projects
-  use { 'ahmedkhalf/project.nvim', config = function() require("project_nvim").setup { patterns = {".git", "Makefile", "package.json", "Gemfile", ".prj", "Cargo.toml" } } end }
+  use { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { patterns = {".git", "Makefile", "package.json", "Gemfile", ".prj", "Cargo.toml" } } end }
+
+  -- Syntax highlighting and filetype detection for the RON format.
+  use "ron-rs/ron.vim"
 end)
 
 -- the first run will install packer and the plugins
