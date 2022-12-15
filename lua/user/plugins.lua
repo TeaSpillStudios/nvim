@@ -109,6 +109,9 @@ require("packer").startup(function(use)
 
   -- Syntax highlighting and filetype detection for the RON format.
   use "ron-rs/ron.vim"
+
+  -- MDX support
+  use "jxnblk/vim-mdx-js"
 end)
 
 -- the first run will install packer and the plugins
