@@ -1,6 +1,9 @@
 -- Enable 24-bit colour support
 vim.opt.termguicolors = true
 
+-- Allow other plugins to use nvim-notify
+vim.notify = require("notify")
+
 -- Change to the nord colourscheme
 vim.cmd("colo nord")
 
