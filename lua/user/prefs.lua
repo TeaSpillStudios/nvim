@@ -1,3 +1,6 @@
+-- Enable 24-bit colour support
+vim.opt.termguicolors = true
+
 -- Change to the nord colourscheme
 vim.cmd("colo nord")
 
