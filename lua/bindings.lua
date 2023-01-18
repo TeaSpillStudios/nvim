@@ -9,3 +9,4 @@ end
 map("<Leader>fe", ":Neotree<CR>")
 map("<Leader>tt", ":TroubleToggle<CR>")
 map("<Leader>gg", ":LazyGit<CR>")
+map("<esc>", ":nohlsearch<CR>")
