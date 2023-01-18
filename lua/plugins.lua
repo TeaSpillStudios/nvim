@@ -52,9 +52,16 @@ require('packer').startup(function(use)
       "MunifTanjim/nui.nvim",
     }
   }
+
+  -- Notifications
+  use "rcarriga/nvim-notify"
 end)
 
 -- Plugin setups
 
+-- Bufferline
 vim.opt.termguicolors = true
 require("bufferline").setup{}
+
+-- NVim-Notify
+vim.notify = require("notify")
