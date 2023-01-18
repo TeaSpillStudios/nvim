@@ -66,6 +66,15 @@ require('packer').startup(function(use)
 
   -- Git control
   use "kdheepak/lazygit.nvim"
+
+  -- Fuzzy find
+  use {
+  'nvim-telescope/telescope.nvim', tag = '0.1.1',
+  requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  -- Git signs
+  use "lewis6991/gitsigns.nvim"
 end)
 
 -- Plugin setups
@@ -76,3 +85,6 @@ require("bufferline").setup{}
 
 -- NVim-Notify
 vim.notify = require("notify")
+
+-- Git signs
+require('gitsigns').setup()
