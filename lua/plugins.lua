@@ -28,6 +28,14 @@ require('packer').startup(function(use)
     }
   }
 
+  -- Rust tools
+  use 'neovim/nvim-lspconfig'
+  use 'simrat39/rust-tools.nvim'
+
+  -- Debugging
+  use 'nvim-lua/plenary.nvim'
+  use 'mfussenegger/nvim-dap'
+
   -- Theme
   use 'navarasu/onedark.nvim'
 
