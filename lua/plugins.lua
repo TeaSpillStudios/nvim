@@ -1,6 +1,9 @@
 require('packer').startup(function(use)
   use {'wbthomason/packer.nvim'}
 
+  -- Font requirement
+  use "nvim-tree/nvim-web-devicons"
+
   -- LSP
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -39,6 +42,16 @@ require('packer').startup(function(use)
 
   -- Buffer list
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
 end)
 
 -- Plugin setups
