@@ -4,3 +4,5 @@ require('onedark').setup {
 require('onedark').load()
 
 vim.cmd("set rnu nu")
+vim.cmd("set clipboard+=unnamedplus")
+vim.g.mapleader = " "
