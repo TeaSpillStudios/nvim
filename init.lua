@@ -1,4 +1,5 @@
 require "plugins"
+require "prefs"
 
 vim.opt.signcolumn = 'yes'
 
