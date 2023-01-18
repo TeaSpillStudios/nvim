@@ -40,3 +40,8 @@ require('packer').startup(function(use)
   -- Buffer list
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 end)
+
+-- Plugin setups
+
+vim.opt.termguicolors = true
+require("bufferline").setup{}
