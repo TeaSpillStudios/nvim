@@ -1,4 +1,5 @@
 require "plugins"
 require "prefs"
 require "lsp"
-require("bar")
+require "bar"
+require "bindings"
