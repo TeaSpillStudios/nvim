@@ -63,6 +63,9 @@ require('packer').startup(function(use)
 
   -- Notifications
   use "rcarriga/nvim-notify"
+
+  -- Git control
+  use "kdheepak/lazygit.nvim"
 end)
 
 -- Plugin setups
