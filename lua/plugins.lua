@@ -36,6 +36,9 @@ require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'mfussenegger/nvim-dap'
 
+  -- Quick jumping
+  use "ggandor/leap.nvim"
+
   -- Theme
   use 'navarasu/onedark.nvim'
 
@@ -88,3 +91,6 @@ vim.notify = require("notify")
 
 -- Git signs
 require('gitsigns').setup()
+
+-- leap
+require('leap').add_default_mappings()
