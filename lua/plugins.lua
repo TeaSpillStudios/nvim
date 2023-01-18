@@ -26,6 +26,5 @@ require('packer').startup(function(use)
   }
 
   -- Theme
-
-  use "shaunsingh/nord.nvim"
+  use 'navarasu/onedark.nvim'
 end)
