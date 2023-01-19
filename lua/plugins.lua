@@ -4,6 +4,11 @@ require('packer').startup(function(use)
   -- Font requirement
   use "nvim-tree/nvim-web-devicons"
 
+  use {
+    'stevearc/aerial.nvim',
+    config = function() require('aerial').setup() end
+  }
+
   -- Autopairing
   use "windwp/nvim-autopairs"
 
