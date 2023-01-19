@@ -48,6 +48,7 @@ require('packer').startup(function(use)
   -- Rust tools
   use 'neovim/nvim-lspconfig'
   use 'simrat39/rust-tools.nvim'
+  use "rust-lang/rust.vim"
 
   -- Debugging
   use 'nvim-lua/plenary.nvim'
