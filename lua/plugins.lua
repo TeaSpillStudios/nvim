@@ -60,7 +60,8 @@ require('packer').startup(function(use)
   -- Theme
   -- use 'navarasu/onedark.nvim'
   -- use { "catppuccin/nvim", as = "catppuccin" }
-  use "EdenEast/nightfox.nvim"
+  -- use "EdenEast/nightfox.nvim"
+  use 'folke/tokyonight.nvim'
 
   -- Bar
   use {

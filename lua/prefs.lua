@@ -3,7 +3,7 @@
 }
 require('onedark').load()]]--
 
-vim.cmd.colorscheme "nightfox"
+vim.cmd.colorscheme "nightfox-night"
 
 vim.cmd("set rnu nu")
 vim.cmd("set clipboard+=unnamedplus")
