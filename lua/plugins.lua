@@ -58,7 +58,8 @@ require('packer').startup(function(use)
   use "ggandor/leap.nvim"
 
   -- Theme
-  use 'navarasu/onedark.nvim'
+  -- use 'navarasu/onedark.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Bar
   use {
