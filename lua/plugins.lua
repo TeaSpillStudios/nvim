@@ -4,6 +4,15 @@ require('packer').startup(function(use)
   -- Font requirement
   use "nvim-tree/nvim-web-devicons"
 
+  -- TreeSitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+      run = function()
+          local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+          ts_update()
+      end,
+  }
+
   -- LSP
   use {
     'VonHeikemen/lsp-zero.nvim',
