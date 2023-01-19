@@ -4,6 +4,9 @@ require('packer').startup(function(use)
   -- Font requirement
   use "nvim-tree/nvim-web-devicons"
 
+  -- Autopairing
+  use "windwp/nvim-autopairs"
+
   -- TreeSitter
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -101,5 +104,8 @@ vim.notify = require("notify")
 -- Git signs
 require('gitsigns').setup()
 
--- leap
+-- Leap
 require('leap').add_default_mappings()
+
+-- Autopairs
+require("nvim-autopairs").setup {}
