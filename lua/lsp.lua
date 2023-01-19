@@ -15,6 +15,22 @@ lsp.nvim_workspace()
 
 lsp.setup()
 
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = 'minimal',
+    border = 'rounded',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
+})
+
 local rt = require("rust-tools")
 
 rt.setup({
