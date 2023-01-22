@@ -1,6 +1,9 @@
 require('packer').startup(function(use)
   use {'wbthomason/packer.nvim'}
 
+  -- Commentary functionality
+  use "tpope/vim-commentary"
+
   -- Font requirement
   use "nvim-tree/nvim-web-devicons"
 
