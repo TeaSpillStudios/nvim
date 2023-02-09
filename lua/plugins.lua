@@ -62,9 +62,9 @@ require('packer').startup(function(use)
 
   -- Theme
   -- use 'navarasu/onedark.nvim'
-  -- use { "catppuccin/nvim", as = "catppuccin" }
+  use { "catppuccin/nvim", as = "catppuccin" }
   -- use "EdenEast/nightfox.nvim"
-  use 'folke/tokyonight.nvim'
+  -- use 'folke/tokyonight.nvim'
 
   -- Bar
   use {
@@ -99,6 +99,9 @@ require('packer').startup(function(use)
   'nvim-telescope/telescope.nvim', tag = '0.1.1',
   requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  -- Floating terminal
+  use 'voldikss/vim-floaterm'
 
   -- Git signs
   use "lewis6991/gitsigns.nvim"
