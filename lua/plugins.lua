@@ -105,6 +105,9 @@ require('packer').startup(function(use)
 
   -- Git signs
   use "lewis6991/gitsigns.nvim"
+
+  -- Discord RPC
+  use "andweeb/presence.nvim"
 end)
 
 -- Plugin setups
