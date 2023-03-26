@@ -11,6 +11,7 @@ map("<Leader>tt", ":TroubleToggle<CR>")
 map("<Leader>gg", ":LazyGit<CR>")
 map("<Leader>a", ":AerialToggle!<CR>")
 map("<Leader>ff", ":Telescope find_files<CR>")
+map("<Leader>fg", ":Telescope live_grep<CR>")
 map("<Leader>ft", ":FloatermToggle <CR>")
 map("<esc>", ":nohlsearch<CR>")
 
