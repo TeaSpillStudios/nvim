@@ -11,17 +11,25 @@ lsp.set_preferences({
   manage_nvim_cmp = true,
 })
 
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+
+cmp.setup({
+	preselect = 'item',
+	completion = {
+	    completeopt = 'menu,menuone,noinsert'
+	},
+
+	mapping = {
+		['<Tab>'] = cmp_action.luasnip_supertab(),
+		['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+		['<CR>'] = cmp.mapping.confirm({select = false}),
+	}
+})
+
 lsp.nvim_workspace()
 
 lsp.setup()
-
-local cmp = require('cmp')
-
-cmp.setup({
-  mapping = {
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
-  }
-})
 
 vim.diagnostic.config({
   virtual_text = true,
