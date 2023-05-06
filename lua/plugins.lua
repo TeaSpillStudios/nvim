@@ -24,6 +24,9 @@ require('packer').startup(function(use)
       end,
   }
 
+  -- Harpoon (For project management)
+  use 'ThePrimeagen/harpoon'
+
   -- LSP
   use {
     'VonHeikemen/lsp-zero.nvim',
