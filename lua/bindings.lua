@@ -15,8 +15,11 @@ map("<Leader>fg", ":Telescope live_grep<CR>")
 map("<Leader>ft", ":FloatermToggle <CR>")
 map("<esc>", ":nohlsearch<CR>")
 
-map("<Leader>hm", ":lua require('harpoon.mark').add_file()")
-map("<Leader>hu", ":lua require('harpoon.ui').toggle_quick_menu()")
+require("telescope").load_extension('harpoon')
+
+map("<Leader>he", ":lua require('harpoon.mark').add_file()<CR>")
+map("<Leader>hm", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+map("<Leader>ht", ":Telescope harpoon marks<CR>")
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
